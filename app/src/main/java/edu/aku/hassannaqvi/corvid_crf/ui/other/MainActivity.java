@@ -50,7 +50,7 @@ import edu.aku.hassannaqvi.corvid_crf.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.corvid_crf.core.DatabaseHelper;
 import edu.aku.hassannaqvi.corvid_crf.core.MainApp;
 import edu.aku.hassannaqvi.corvid_crf.databinding.ActivityMainBinding;
-import edu.aku.hassannaqvi.corvid_crf.ui.sections.SectionAActivity;
+import edu.aku.hassannaqvi.corvid_crf.ui.sections.SectionAAActivity;
 import edu.aku.hassannaqvi.corvid_crf.ui.sync.SyncActivity;
 import edu.aku.hassannaqvi.corvid_crf.utils.CreateTable;
 
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
     public void OpenFormFunc() {
         Intent oF;
         if (!MainApp.userName.equals("0000")) {
-            oF = new Intent(MainActivity.this, SectionAActivity.class);
+            oF = new Intent(MainActivity.this, SectionAAActivity.class);
             startActivity(oF);
         } else {
             Toast.makeText(getApplicationContext(), "Please login Again!", Toast.LENGTH_LONG).show();
