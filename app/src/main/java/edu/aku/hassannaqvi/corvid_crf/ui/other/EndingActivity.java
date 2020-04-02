@@ -16,7 +16,6 @@ import edu.aku.hassannaqvi.corvid_crf.R;
 import edu.aku.hassannaqvi.corvid_crf.core.DatabaseHelper;
 import edu.aku.hassannaqvi.corvid_crf.core.MainApp;
 import edu.aku.hassannaqvi.corvid_crf.databinding.ActivityEndingBinding;
-import edu.aku.hassannaqvi.corvid_crf.ui.sections.SectionE2Activity;
 
 public class EndingActivity extends AppCompatActivity {
 
@@ -81,7 +80,6 @@ public class EndingActivity extends AppCompatActivity {
 
         MainApp.fc.setIstatus88x(bi.istatus96x.getText().toString());
         MainApp.fc.setEndingdatetime(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
-        SectionE2Activity.noOfPreCounter = 0;
     }
 
     public boolean UpdateDB() {

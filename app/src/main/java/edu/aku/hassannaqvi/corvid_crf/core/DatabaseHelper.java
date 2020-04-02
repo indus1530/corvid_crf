@@ -46,15 +46,7 @@ import edu.aku.hassannaqvi.corvid_crf.contracts.VillagesContract.SingleVillage;
 
 import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.DATABASE_VERSION;
-import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_BL_RANDOM;
-import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_CHILD_TABLE;
-import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_FORMS;
-import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_KISH_TABLE;
-import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_MORTALITY;
-import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_MWRAPRE_TABLE;
-import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_MWRA_TABLE;
-import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_PSU_TABLE;
 import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.corvid_crf.utils.CreateTable.SQL_CREATE_VERSIONAPP;
 
@@ -80,36 +72,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
-//        db.execSQL(SQL_CREATE_TALUKAS);
-//        db.execSQL(SQL_CREATE_UCS);
-        db.execSQL(SQL_CREATE_PSU_TABLE);
-        db.execSQL(SQL_CREATE_BL_RANDOM);
-//        db.execSQL(SQL_CREATE_AREAS);
         db.execSQL(SQL_CREATE_VERSIONAPP);
-        db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
-        db.execSQL(SQL_CREATE_KISH_TABLE);
-        db.execSQL(SQL_CREATE_MWRA_TABLE);
-        db.execSQL(SQL_CREATE_MWRAPRE_TABLE);
-        db.execSQL(SQL_CREATE_CHILD_TABLE);
-        db.execSQL(SQL_CREATE_MORTALITY);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-//        db.execSQL(SQL_DELETE_USERS);
-//        db.execSQL(SQL_DELETE_FORMS);
-//        db.execSQL("DROP TABLE IF EXISTS " + LHWContract.lhwEntry.TABLE_NAME);
-//        db.execSQL(SQL_DELETE_CHILDREN);
-//        db.execSQL(SQL_DELETE_CHILDLIST);
-//        db.execSQL(SQL_DELETE_VILLAGES);
-//        db.execSQL(SQL_DELETE_TALUKAS);
-//        db.execSQL(SQL_DELETE_UCS);
-//        db.execSQL(SQL_DELETE_AREAS);
-
-
     }
 
     public void syncVillages(JSONArray pcList) {
