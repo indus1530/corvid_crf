@@ -30,9 +30,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,6 +39,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.corvid_crf.R;
 import edu.aku.hassannaqvi.corvid_crf.contracts.AreasContract;
 import edu.aku.hassannaqvi.corvid_crf.contracts.FormsContract;
@@ -50,7 +49,7 @@ import edu.aku.hassannaqvi.corvid_crf.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.corvid_crf.core.DatabaseHelper;
 import edu.aku.hassannaqvi.corvid_crf.core.MainApp;
 import edu.aku.hassannaqvi.corvid_crf.databinding.ActivityMainBinding;
-import edu.aku.hassannaqvi.corvid_crf.ui.sections.SectionAAActivity;
+import edu.aku.hassannaqvi.corvid_crf.ui.sections.SectionABActivity;
 import edu.aku.hassannaqvi.corvid_crf.ui.sync.SyncActivity;
 import edu.aku.hassannaqvi.corvid_crf.utils.CreateTable;
 
@@ -167,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
     public void OpenFormFunc() {
         Intent oF;
         if (!MainApp.userName.equals("0000")) {
-            oF = new Intent(MainActivity.this, SectionAAActivity.class);
+            oF = new Intent(MainActivity.this, SectionABActivity.class);
             startActivity(oF);
         } else {
             Toast.makeText(getApplicationContext(), "Please login Again!", Toast.LENGTH_LONG).show();

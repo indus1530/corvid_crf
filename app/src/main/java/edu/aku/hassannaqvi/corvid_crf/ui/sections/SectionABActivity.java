@@ -99,17 +99,11 @@ public class SectionABActivity extends AppCompatActivity {
                 : bi.a2b.isChecked() ? "2"
                 : "0");
 
-        json.put("A3", bi.a3.getText().toString());
-
-        json.put("A4", bi.a4.getText().toString());
 
         json.put("A5", bi.a5a.isChecked() ? "1"
                 : bi.a5b.isChecked() ? "2"
                 : "0");
 
-        json.put("A6", bi.a6a.isChecked() ? "1"
-                : bi.a6b.isChecked() ? "2"
-                : "0");
 
         json.put("A7", bi.a7a.isChecked() ? "1"
                 : bi.a7b.isChecked() ? "2"
@@ -171,21 +165,6 @@ public class SectionABActivity extends AppCompatActivity {
                 : bi.a814b.isChecked() ? "2"
                 : "0");
 
-        json.put("A91", bi.a91a.isChecked() ? "1"
-                : bi.a91b.isChecked() ? "2"
-                : "0");
-
-        json.put("A92", bi.a92a.isChecked() ? "1"
-                : bi.a92b.isChecked() ? "2"
-                : "0");
-
-        json.put("A93", bi.a93a.isChecked() ? "1"
-                : bi.a93b.isChecked() ? "2"
-                : "0");
-
-        json.put("A94", bi.a94a.isChecked() ? "1"
-                : bi.a94b.isChecked() ? "2"
-                : "0");
 
         json.put("A95", bi.a95a.isChecked() ? "1"
                 : bi.a95b.isChecked() ? "2"
