@@ -19,7 +19,6 @@ import edu.aku.hassannaqvi.corvid_crf.contracts.FormsContract;
 import edu.aku.hassannaqvi.corvid_crf.core.DatabaseHelper;
 import edu.aku.hassannaqvi.corvid_crf.core.MainApp;
 import edu.aku.hassannaqvi.corvid_crf.databinding.ActivitySectionAbBinding;
-import edu.aku.hassannaqvi.corvid_crf.ui.other.EndingActivity;
 import edu.aku.hassannaqvi.corvid_crf.ui.other.MainActivity;
 import edu.aku.hassannaqvi.corvid_crf.utils.Util;
 
@@ -246,6 +245,7 @@ public class SectionABActivity extends AppCompatActivity {
         MainApp.fc.setsInfo(String.valueOf(json));
         MainApp.fc.setIstatus("1");
         MainApp.fc.setEndingdatetime(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+
         Toast.makeText(this, "Form Submitted Successfully...", Toast.LENGTH_LONG).show();
 
     }
