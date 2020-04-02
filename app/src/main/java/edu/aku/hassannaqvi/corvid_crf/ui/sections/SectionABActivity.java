@@ -245,7 +245,7 @@ public class SectionABActivity extends AppCompatActivity {
         MainApp.fc.setsInfo(String.valueOf(json));
         MainApp.fc.setIstatus("1");
         MainApp.fc.setEndingdatetime(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
-        Toast.makeText(this, "Form Submitted Successfully...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Form Submitted Successfully...", Toast.LENGTH_LONG).show();
 
     }
 
