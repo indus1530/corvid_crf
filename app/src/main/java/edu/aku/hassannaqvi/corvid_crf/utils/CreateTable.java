@@ -1,22 +1,14 @@
 package edu.aku.hassannaqvi.corvid_crf.utils;
 
-import edu.aku.hassannaqvi.corvid_crf.contracts.BLRandomContract.SingleRandomHH;
-import edu.aku.hassannaqvi.corvid_crf.contracts.ChildContract.SingleChild;
-import edu.aku.hassannaqvi.corvid_crf.contracts.EnumBlockContract;
-import edu.aku.hassannaqvi.corvid_crf.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.corvid_crf.contracts.FormsContract;
-import edu.aku.hassannaqvi.corvid_crf.contracts.KishMWRAContract.SingleKishMWRA;
-import edu.aku.hassannaqvi.corvid_crf.contracts.MWRAContract.MWRATable;
-import edu.aku.hassannaqvi.corvid_crf.contracts.MWRA_PREContract.SingleMWRAPRE;
-import edu.aku.hassannaqvi.corvid_crf.contracts.MortalityContract.SingleMortality;
 import edu.aku.hassannaqvi.corvid_crf.contracts.UsersContract;
 import edu.aku.hassannaqvi.corvid_crf.contracts.VersionAppContract;
 
 public final class CreateTable {
 
-    public static final String DATABASE_NAME = "uen_ml20.db";
-    public static final String DB_NAME = "uen_ml20_copy.db";
-    public static final String PROJECT_NAME = "DMU-UENML2020";
+    public static final String DATABASE_NAME = "covid_sukkar.db";
+    public static final String DB_NAME = "covid_sukkar_copy.db";
+    public static final String PROJECT_NAME = "DMU-COVID19-SUKKUR";
     public static final int DATABASE_VERSION = 1;
 
     public static final String SQL_CREATE_FORMS = "CREATE TABLE "
@@ -62,134 +54,4 @@ public final class CreateTable {
             VersionAppContract.VersionAppTable.COLUMN_VERSION_NAME + " TEXT, " +
             VersionAppContract.VersionAppTable.COLUMN_PATH_NAME + " TEXT " +
             ");";
-/*
-    public static final String SQL_CREATE_TALUKAS = "CREATE TABLE " + TalukasContract.singleTalukas.TABLE_NAME + "("
-            + TalukasContract.singleTalukas._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + TalukasContract.singleTalukas.COLUMN_TALUKA_CODE + " TEXT,"
-            + TalukasContract.singleTalukas.COLUMN_TALUKA + " TEXT );";
-
-
-    public static final String SQL_CREATE_UCS = "CREATE TABLE " + UCsContract.singleUCs.TABLE_NAME + "("
-            + UCsContract.singleUCs._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + UCsContract.singleUCs.COLUMN_UCCODE + " TEXT,"
-            + UCsContract.singleUCs.COLUMN_TALUKA_CODE + " TEXT,"
-            + UCsContract.singleUCs.COLUMN_UCS + " TEXT );";
-
-
-    public static final String SQL_CREATE_AREAS = "CREATE TABLE " + AreasContract.singleAreas.TABLE_NAME + "("
-            + AreasContract.singleAreas._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + AreasContract.singleAreas.COLUMN_AREACODE + " TEXT,"
-            + AreasContract.singleAreas.COLUMN_UC_CODE + " TEXT,"
-            + AreasContract.singleAreas.COLUMN_AREA + " TEXT );";*/
-
-    public static final String SQL_CREATE_BL_RANDOM = "CREATE TABLE " + SingleRandomHH.TABLE_NAME + "("
-            + SingleRandomHH.COLUMN_ID + " TEXT,"
-            + SingleRandomHH.COLUMN_ENUM_BLOCK_CODE + " TEXT,"
-            + SingleRandomHH.COLUMN_LUID + " TEXT,"
-            + SingleRandomHH.COLUMN_HH + " TEXT,"
-            + SingleRandomHH.COLUMN_STRUCTURE_NO + " TEXT,"
-            + SingleRandomHH.COLUMN_FAMILY_EXT_CODE + " TEXT,"
-            + SingleRandomHH.COLUMN_HH_HEAD + " TEXT,"
-            + SingleRandomHH.COLUMN_CONTACT + " TEXT,"
-            + SingleRandomHH.COLUMN_HH_SELECTED_STRUCT + " TEXT,"
-            + SingleRandomHH.COLUMN_RANDOMDT + " TEXT,"
-            + SingleRandomHH.COLUMN_SNO_HH + " TEXT );";
-
-    public static final String SQL_CREATE_PSU_TABLE = "CREATE TABLE " + EnumBlockContract.EnumBlockTable.TABLE_NAME + " (" +
-            EnumBlockContract.EnumBlockTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            EnumBlockContract.EnumBlockTable.COLUMN_DIST_ID + " TEXT, " +
-            EnumBlockContract.EnumBlockTable.COLUMN_GEO_AREA + " TEXT, " +
-            EnumBlockContract.EnumBlockTable.COLUMN_CLUSTER_AREA + " TEXT " +
-            ");";
-
-    public static final String SQL_CREATE_KISH_TABLE = "CREATE TABLE " + SingleKishMWRA.TABLE_NAME + "("
-            + SingleKishMWRA._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + SingleKishMWRA.COLUMN_UID + " TEXT,"
-            + SingleKishMWRA.COLUMN__UUID + " TEXT,"
-            + SingleKishMWRA.COLUMN_DEVICEID + " TEXT,"
-            + SingleKishMWRA.COLUMN_FORMDATE + " TEXT,"
-            + SingleKishMWRA.COLUMN_USER + " TEXT,"
-            + SingleKishMWRA.COLUMN_SF + " TEXT,"
-            + SingleKishMWRA.COLUMN_SG + " TEXT,"
-            + SingleKishMWRA.COLUMN_SH1 + " TEXT,"
-            + SingleKishMWRA.COLUMN_SH2 + " TEXT,"
-            + SingleKishMWRA.COLUMN_SK + " TEXT,"
-            + SingleKishMWRA.COLUMN_SL + " TEXT,"
-            + SingleKishMWRA.COLUMN_DEVICETAGID + " TEXT,"
-            + SingleKishMWRA.COLUMN_SYNCED + " TEXT,"
-            + SingleKishMWRA.COLUMN_SYNCED_DATE + " TEXT );";
-
-    public static final String SQL_CREATE_MWRA_TABLE = "CREATE TABLE " + MWRATable.TABLE_NAME + "("
-            + MWRATable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + MWRATable.COLUMN_UID + " TEXT,"
-            + MWRATable.COLUMN_UUID + " TEXT,"
-            + MWRATable.COLUMN_FORMDATE + " TEXT,"
-            + MWRATable.COLUMN_DEVICEID + " TEXT,"
-            + MWRATable.COLUMN_USER + " TEXT,"
-            + MWRATable.COLUMN_SE1 + " TEXT,"
-            + MWRATable.COLUMN_DEVICETAGID + " TEXT,"
-            + MWRATable.COLUMN_SYNCED + " TEXT,"
-            + MWRATable.COLUMN_SYNCED_DATE + " TEXT );";
-
-    public static final String SQL_CREATE_MWRAPRE_TABLE = "CREATE TABLE " + SingleMWRAPRE.TABLE_NAME + "("
-            + SingleMWRAPRE._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + SingleMWRAPRE.COLUMN_UID + " TEXT,"
-            + SingleMWRAPRE.COLUMN__UUID + " TEXT,"
-            + SingleMWRAPRE.COLUMN_FORMDATE + " TEXT,"
-            + SingleMWRAPRE.COLUMN_DEVICEID + " TEXT,"
-            + SingleMWRAPRE.COLUMN_USER + " TEXT,"
-            + SingleMWRAPRE.COLUMN_SE2 + " TEXT,"
-            + SingleMWRAPRE.COLUMN_DEVICETAGID + " TEXT,"
-            + SingleMWRAPRE.COLUMN_SYNCED + " TEXT,"
-            + SingleMWRAPRE.COLUMN_SYNCED_DATE + " TEXT );";
-
-    public static final String SQL_CREATE_CHILD_TABLE = "CREATE TABLE " + SingleChild.TABLE_NAME + "("
-            + SingleChild._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + SingleChild.COLUMN_UID + " TEXT,"
-            + SingleChild.COLUMN__UUID + " TEXT,"
-            + SingleChild.COLUMN_DEVICEID + " TEXT,"
-            + SingleChild.COLUMN_FORMDATE + " TEXT,"
-            + SingleChild.COLUMN_USER + " TEXT,"
-            + SingleChild.COLUMN_SI1 + " TEXT,"
-            + SingleChild.COLUMN_SI2 + " TEXT,"
-            + SingleChild.COLUMN_SJ + " TEXT,"
-            + SingleChild.COLUMN_DEVICETAGID + " TEXT,"
-            + SingleChild.COLUMN_SYNCED + " TEXT,"
-            + SingleChild.COLUMN_SYNCED_DATE + " TEXT );";
-
-
-    public static final String SQL_CREATE_MORTALITY = "CREATE TABLE " + SingleMortality.TABLE_NAME + "("
-            + SingleMortality._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + SingleMortality.COLUMN_UID + " TEXT,"
-            + SingleMortality.COLUMN__UUID + " TEXT,"
-            + SingleMortality.COLUMN_DEVICEID + " TEXT,"
-            + SingleMortality.COLUMN_FORMDATE + " TEXT,"
-            + SingleMortality.COLUMN_USER + " TEXT,"
-            + SingleMortality.COLUMN_SE3 + " TEXT,"
-            + SingleMortality.COLUMN_DEVICETAGID + " TEXT,"
-            + SingleMortality.COLUMN_SYNCED + " TEXT,"
-            + SingleMortality.COLUMN_SYNCED_DATE + " TEXT );";
-
-
-    public static final String SQL_CREATE_FAMILY_MEMBERS = "CREATE TABLE " + FamilyMembersContract.SingleMember.TABLE_NAME + "("
-            + FamilyMembersContract.SingleMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            FamilyMembersContract.SingleMember.COLUMN_UID + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_UUID + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_FORMDATE + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_CLUSTERNO + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_HHNO + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_SERIAL_NO + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_NAME + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_RELATION_HH + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_AGE + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_MONTH_FM + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_MOTHER_NAME + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_MOTHER_SERIAL + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_GENDER + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_MARITAL + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_SD + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_SYNCED + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_SYNCED_DATE + " TEXT"
-            + ");";
-
 }

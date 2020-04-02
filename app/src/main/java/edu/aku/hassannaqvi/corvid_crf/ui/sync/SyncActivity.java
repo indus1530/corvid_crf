@@ -32,13 +32,7 @@ import edu.aku.hassannaqvi.corvid_crf.CONSTANTS;
 import edu.aku.hassannaqvi.corvid_crf.R;
 import edu.aku.hassannaqvi.corvid_crf.adapter.SyncListAdapter;
 import edu.aku.hassannaqvi.corvid_crf.adapter.UploadListAdapter;
-import edu.aku.hassannaqvi.corvid_crf.contracts.ChildContract;
-import edu.aku.hassannaqvi.corvid_crf.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.corvid_crf.contracts.FormsContract;
-import edu.aku.hassannaqvi.corvid_crf.contracts.KishMWRAContract;
-import edu.aku.hassannaqvi.corvid_crf.contracts.MWRAContract;
-import edu.aku.hassannaqvi.corvid_crf.contracts.MWRA_PREContract;
-import edu.aku.hassannaqvi.corvid_crf.contracts.MortalityContract;
 import edu.aku.hassannaqvi.corvid_crf.core.DatabaseHelper;
 import edu.aku.hassannaqvi.corvid_crf.core.MainApp;
 import edu.aku.hassannaqvi.corvid_crf.databinding.ActivitySyncBinding;
@@ -133,8 +127,6 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
     }
 
     public void syncServer() {
-//        if(true) return;
-
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -142,10 +134,9 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         if (networkInfo != null && networkInfo.isConnected()) {
 
             DatabaseHelper db = new DatabaseHelper(this);
-            //syncStatus.setText(null);
-//            new SyncDevice(this).execute();
             new SyncDevice(this, false).execute();
-//  *******************************************************Forms*********************************
+
+            //  **********Forms********
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
@@ -160,97 +151,6 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     FormsContract.FormsTable.TABLE_NAME,
                     db.getUnsyncedForms(), 0, uploadListAdapter, uploadlist
-            ).execute();
-
-
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
-            }
-            new SyncAllData(
-                    this,
-                    "Child",
-                    "updateSyncedChildForms",
-                    ChildContract.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    ChildContract.SingleChild.TABLE_NAME,
-                    db.getUnsyncedChildForms(), 1, uploadListAdapter, uploadlist
-            ).execute();
-
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
-            }
-            new SyncAllData(
-                    this,
-                    "KISH MWRA",
-                    "updateSyncedKishMWRAForms",
-                    MWRAContract.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    KishMWRAContract.SingleKishMWRA.TABLE_NAME,
-                    db.getUnsyncedKishMWRA(), 2, uploadListAdapter, uploadlist
-            ).execute();
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
-            }
-            new SyncAllData(
-                    this,
-                    "Pregnant MWRA",
-                    "updateSyncedPregMWRAForms",
-                    MWRA_PREContract.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    MWRA_PREContract.SingleMWRAPRE.TABLE_NAME,
-                    db.getUnsyncedPregMWRA(), 3, uploadListAdapter, uploadlist
-            ).execute();
-
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
-            }
-            new SyncAllData(
-                    this,
-                    "Mortality",
-                    "updateSyncedMortalityForms",
-                    MortalityContract.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    MortalityContract.SingleMortality.TABLE_NAME,
-                    db.getUnsyncedMortality(), 4, uploadListAdapter, uploadlist
-            ).execute();
-
-
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
-            }
-            new SyncAllData(
-                    this,
-                    "Family Members",
-                    "updateSyncedFamilyMemForms",
-                    MWRA_PREContract.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    FamilyMembersContract.SingleMember.TABLE_NAME,
-                    db.getAllFamilyMembersForms(), 5, uploadListAdapter, uploadlist
-            ).execute();
-
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
-            }
-            new SyncAllData(
-                    this,
-                    "MWRA",
-                    "updateSyncedMWRAForms",
-                    MWRA_PREContract.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    MWRAContract.MWRATable.TABLE_NAME,
-                    db.getUnsyncedMWRA(), 6, uploadListAdapter, uploadlist
             ).execute();
 
 
@@ -280,9 +180,9 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
             String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
 
-            if (dt != new SimpleDateFormat("dd-MM-yy").format(new Date())) {
+            if (!dt.equals(new SimpleDateFormat("dd-MM-yy").format(new Date()))) {
                 editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
-                editor.commit();
+                editor.apply();
             }
 
             File folder = new File(Environment.getExternalStorageDirectory() + File.separator + PROJECT_NAME);
@@ -352,42 +252,21 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         protected String doInBackground(Boolean... booleans) {
             runOnUiThread(() -> {
 
-                if (booleans[0]) {
 //                  getting Users!!
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "User", syncListAdapter, list).execute();
+                if (listActivityCreated) {
+                    model = new SyncModel();
+                    model.setstatusID(0);
+                    list.add(model);
+                }
+                new GetAllData(mContext, "User", syncListAdapter, list).execute();
 
 //                    Getting App Version
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "VersionApp", syncListAdapter, list).execute();
-
-                } else {
-
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "EnumBlock", syncListAdapter, list).execute(distID);
-                    bi.noItem.setVisibility(View.GONE);
-
-//                   getting BL Random
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "BLRandom", syncListAdapter, list).execute(distID);
-
+                if (listActivityCreated) {
+                    model = new SyncModel();
+                    model.setstatusID(0);
+                    list.add(model);
                 }
+                new GetAllData(mContext, "VersionApp", syncListAdapter, list).execute();
 
                 listActivityCreated = false;
             });
