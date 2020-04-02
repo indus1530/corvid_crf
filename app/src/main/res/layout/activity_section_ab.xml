@@ -26,10 +26,7 @@
             <!-- HEAD   -->
             <androidx.cardview.widget.CardView style="@style/cardView">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
                         style="@style/textView3Head"
@@ -156,11 +153,10 @@
                 android:id="@+id/a4cv"
                 style="@style/cardView">
 
-                <LinearLayout style="@style/linearlayout_view">
+                <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
                         style="@style/i_textview"
-                        android:gravity="center"
                         android:text="History of smoking:" />
 
                     <RadioGroup

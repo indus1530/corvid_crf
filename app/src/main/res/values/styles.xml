@@ -163,7 +163,7 @@
     <style name="textView3Head">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20px</item>
         <item name="android:padding">20dp</item>
         <item name="android:textStyle">italic</item>
         <item name="android:textAlignment">center</item>
@@ -172,7 +172,7 @@
     </style>
 
     <style name="textInput">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">20px</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">10dp</item>
@@ -200,7 +200,7 @@
         <!--        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>-->
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">30px</item>
         <item name="android:drawable">@drawable/textview_background_grad</item>
         <item name="android:typeface">sans</item>
         <item name="android:padding">10dp</item>
@@ -251,7 +251,8 @@
     </style>
 
     <style name="radiobutton" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="android:textSize">20sp</item>
+        <!--<item name="android:textSize">20sp</item>-->
+        <item name="android:textSize">25px</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/white</item>
@@ -382,6 +383,18 @@
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:orientation">vertical</item>
         <item name="android:padding">1dp</item>
+    </style>
+
+    <style name="vlinearlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="hlinearlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
     </style>
 
     <style name="linearlayout_view_wt_bound">
