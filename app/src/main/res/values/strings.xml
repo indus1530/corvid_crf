@@ -2,7 +2,7 @@
 <resources>
 
     <!--new Strings-->
-    <string name="app_name"> CORVID CRF </string>
+    <string name="app_name"> COVID sukkur </string>
 
     <!-- Strings related to login -->
     <string name="btnSync">Sync</string>
@@ -67,6 +67,8 @@
     <string name="total"> Total </string>
     <string name="mwra"> MWRA </string>
     <string name="under5"> Child Under 5 </string>
+
+    <string name="secab"> Clinical Research Form for COVID-19 </string>
 
     <string name="taheading"> SECTION A: HH Identification </string>
     <string name="a101"> Cluster number </string>
