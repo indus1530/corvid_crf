@@ -20,6 +20,7 @@ import edu.aku.hassannaqvi.corvid_crf.core.DatabaseHelper;
 import edu.aku.hassannaqvi.corvid_crf.core.MainApp;
 import edu.aku.hassannaqvi.corvid_crf.databinding.ActivitySectionAbBinding;
 import edu.aku.hassannaqvi.corvid_crf.ui.other.EndingActivity;
+import edu.aku.hassannaqvi.corvid_crf.ui.other.MainActivity;
 import edu.aku.hassannaqvi.corvid_crf.utils.Util;
 
 public class SectionABActivity extends AppCompatActivity {
@@ -46,7 +47,7 @@ public class SectionABActivity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(SectionABActivity.this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         }
     }
@@ -242,6 +243,9 @@ public class SectionABActivity extends AppCompatActivity {
         json.put("A71396", bi.a71396.getText().toString());
 
         MainApp.fc.setsInfo(String.valueOf(json));
+        MainApp.fc.setIstatus("1");
+        MainApp.fc.setEndingdatetime(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        Toast.makeText(this, "Form Submitted Successfully...", Toast.LENGTH_SHORT).show();
 
     }
 
