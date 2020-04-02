@@ -33,7 +33,6 @@ public class SectionABActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_ab);
         bi.setCallback(this);
         db = MainApp.appInfo.getDbHelper();
-        MainApp.setGPS(this); // Set GPS
 
     }
 
@@ -78,7 +77,7 @@ public class SectionABActivity extends AppCompatActivity {
         /*MainApp.fc.setClusterCode(bi.a101.getText().toString());
         MainApp.fc.setHhno(bi.a112.getText().toString());
         MainApp.fc.setLuid(bl.getLUID());*/
-        //MainApp.setGPS(this); // Set GPS
+        MainApp.setGPS(this); // Set GPS
 
         JSONObject json = new JSONObject();
 
