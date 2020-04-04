@@ -247,7 +247,7 @@
         <item name="android:orientation">vertical</item>
         <item name="android:background">#d6d6d6</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+        <item name="android:typeface">normal</item>
     </style>
 
     <style name="radiobutton" parent="Widget.AppCompat.CompoundButton.RadioButton">
